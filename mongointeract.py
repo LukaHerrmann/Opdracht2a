@@ -25,7 +25,9 @@ def average(collection, name, target):
 
 client = MongoClient()
 db = client.huwebshop
-print('De naam en prijs van het eerste product in de database: {}'.format(getfirstitem(db.products, ('name', 'price'))))
+print('De naam en prijs van het eerste product in de database: {}'.
+      format(getfirstitem(db.products, ('name', 'price'))))
 print('De naam van het eerste product dat begint met een \'R\': {}'.
       format(getfirstfiltered(db.products, ('name',), 'name', {'$regex':'^R'})))
-print('De gemiddelde prijs van de producten in de database: {}'.format(average(db.products, 'price', '$price.selling_price')))
+print('De gemiddelde prijs van de producten in de database: {}'.
+      format(average(db.products, 'price', '$price.selling_price')))
